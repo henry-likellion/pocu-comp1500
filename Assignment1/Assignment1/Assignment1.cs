@@ -6,10 +6,10 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output)
         {
-            int numberOfIntegers = 5;
-            int[] integers = new int[numberOfIntegers];
+            const int NUMBER_INTEGERS = 5;
+            int[] integers = new int[NUMBER_INTEGERS];
 
-            for(int i = 0; i < numberOfIntegers; ++i)
+            for (int i = 0; i < NUMBER_INTEGERS; ++i)
             {
                 integers[i] = int.Parse(input.ReadLine());
             }
@@ -17,7 +17,7 @@ namespace Assignment1
             output.WriteLine($"{"oct",12}{"dec",11}{"hex",9}");
             output.WriteLine($"------------ ---------- --------");
 
-            for(int i = 0; i < numberOfIntegers; ++i)
+            for (int i = 0; i < NUMBER_INTEGERS; ++i)
             {
                 // string octValue = integers[i].ToString(8);
                 string hexValue = integers[i].ToString("X");
@@ -38,10 +38,10 @@ namespace Assignment1
 
         public static void PrintStats(StreamReader input, StreamWriter output)
         {
-            int numberOfFloats = 5;
-            float[] floats = new float[numberOfFloats];
+            const int NUMBER_FLOATS = 5;
+            float[] floats = new float[NUMBER_FLOATS];
 
-            for (int i = 0; i < numberOfFloats; ++i)
+            for (int i = 0; i < NUMBER_FLOATS; ++i)
             {
                 floats[i] = float.Parse(input.ReadLine());
             }
@@ -50,7 +50,7 @@ namespace Assignment1
             float max = floats[0];
             float sum = 0f;
 
-            for (int i = 0; i < numberOfFloats; ++i)
+            for (int i = 0; i < NUMBER_FLOATS; ++i)
             {
                 if (min > floats[i])
                 {
@@ -65,13 +65,13 @@ namespace Assignment1
                 sum += floats[i];
             }
 
-            float average = sum / numberOfFloats;
+            float average = sum / NUMBER_FLOATS;
             string minToString = min.ToString("0.000");
             string maxToString = max.ToString("0.000");
             string sumToString = sum.ToString("0.000");
             string averageToString = average.ToString("0.000");
 
-            for (int i = 0; i < numberOfFloats; ++i)
+            for (int i = 0; i < NUMBER_FLOATS; ++i)
             {
                 string floatToString = floats[i].ToString("0.000");
                 output.WriteLine($"{floatToString,20}");
