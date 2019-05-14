@@ -6,18 +6,18 @@ namespace Assignment1
     {
         public static void PrintIntegers(StreamReader input, StreamWriter output)
         {
-            int NUMBER_INTEGERS = 5;
-            int[] integers = new int[NUMBER_INTEGERS];
+            int numberOfIntegers = 5;
+            int[] integers = new int[numberOfIntegers];
 
-            for(int i = 0; i < NUMBER_INTEGERS; ++i)
+            for(int i = 0; i < numberOfIntegers; ++i)
             {
                 integers[i] = int.Parse(input.ReadLine());
             }
 
-            output.WriteLine($"{"oct", 12}{"dec", 11}{"hex", 9}");
+            output.WriteLine($"{"oct",12}{"dec",11}{"hex",9}");
             output.WriteLine($"------------ ---------- --------");
 
-            for(int i = 0; i < NUMBER_INTEGERS; ++i)
+            for(int i = 0; i < numberOfIntegers; ++i)
             {
                 // string octValue = integers[i].ToString(8);
                 string hexValue = integers[i].ToString("X");
@@ -32,16 +32,16 @@ namespace Assignment1
                     octValue = remainder.ToString() + octValue;
                 }
               
-                output.WriteLine($"{octValue, 12}{integers[i], 11}{hexValue, 9}");
+                output.WriteLine($"{octValue,12}{integers[i],11}{hexValue,9}");
             }
         }
 
         public static void PrintStats(StreamReader input, StreamWriter output)
         {
-            int NUMBER_FLOATS = 5;
-            float[] floats = new float[NUMBER_FLOATS];
+            int numberOfFloats = 5;
+            float[] floats = new float[numberOfFloats];
 
-            for (int i = 0; i < NUMBER_FLOATS; ++i)
+            for (int i = 0; i < numberOfFloats; ++i)
             {
                 floats[i] = float.Parse(input.ReadLine());
             }
@@ -50,7 +50,7 @@ namespace Assignment1
             float max = floats[0];
             float sum = 0f;
 
-            for (int i = 0; i < NUMBER_FLOATS; ++i)
+            for (int i = 0; i < numberOfFloats; ++i)
             {
                 if (min > floats[i])
                 {
@@ -65,22 +65,22 @@ namespace Assignment1
                 sum += floats[i];
             }
 
-            float average = sum / NUMBER_FLOATS;
+            float average = sum / numberOfFloats;
             string minToString = min.ToString("0.000");
             string maxToString = max.ToString("0.000");
             string sumToString = sum.ToString("0.000");
             string averageToString = average.ToString("0.000");
 
-            for (int i = 0; i < NUMBER_FLOATS; ++i)
+            for (int i = 0; i < numberOfFloats; ++i)
             {
                 string floatToString = floats[i].ToString("0.000");
-                output.WriteLine($"{floatToString, 20}");
+                output.WriteLine($"{floatToString,20}");
             }
 
-            output.WriteLine($"Min{minToString, 17}");
-            output.WriteLine($"Max{maxToString, 17}");
-            output.WriteLine($"Sum{sumToString, 17}");
-            output.WriteLine($"Average{averageToString, 13}");
+            output.WriteLine($"Min{minToString,17}");
+            output.WriteLine($"Max{maxToString,17}");
+            output.WriteLine($"Sum{sumToString,17}");
+            output.WriteLine($"Average{averageToString,13}");
         }
     }
 }
