@@ -39,7 +39,7 @@ namespace Lab3
         public static uint CalculatePayerCount(StreamReader input, double totalCost)
         {
             double indivisualCost = double.Parse(input.ReadLine());
-            uint numberOfPayer = (uint)Math.Round(totalCost / indivisualCost) + 1;
+            uint numberOfPayer = (uint)Math.Ceiling(totalCost / indivisualCost);
             return numberOfPayer;
         }
     }
