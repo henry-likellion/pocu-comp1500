@@ -6,7 +6,12 @@ namespace Lab5
     {
         public static bool TryFixData(uint[] usersPerDay, double[] revenuePerDay)
         {
-            bool isDataFixed = false;
+            if (usersPerDay.Length != revenuePerDay.Length)
+            {
+                return false;
+            }
+
+            bool bIsDataFixed = false;
 
             for (int i = 0; i < usersPerDay.Length; ++i)
             {
@@ -35,10 +40,10 @@ namespace Lab5
                 if (revenuePerDay[i] != correctDailyRevenue)
                 {
                     revenuePerDay[i] = correctDailyRevenue;
-                    isDataFixed = true;
+                    bIsDataFixed = true;
                 }
             }
-            return isDataFixed;
+            return bIsDataFixed;
         }
 
         public static int GetInvalidEntryCount(uint[] usersPerDay, double[] revenuePerDay)
@@ -48,24 +53,24 @@ namespace Lab5
                 return -1;
             }
 
-            int NUM_REVENUE_ENTRIES = revenuePerDay.Length;
+            int numRevenueEntries = revenuePerDay.Length;
             int numInvalidEntries = 0;
 
-            double[] revenuePerDayCopyOne = new double[NUM_REVENUE_ENTRIES];
-            double[] revenuePerDayCopyTwo = new double[NUM_REVENUE_ENTRIES];
+            double[] revenuePerDayCopyOne = new double[numRevenueEntries];
+            double[] revenuePerDayCopyTwo = new double[numRevenueEntries];
 
-            for (int i = 0; i < NUM_REVENUE_ENTRIES; ++i)
+            for (int i = 0; i < numRevenueEntries; ++i)
             {
                 revenuePerDayCopyOne[i] = revenuePerDay[i];
                 revenuePerDayCopyTwo[i] = revenuePerDay[i];
             }
 
-            bool isDataFixed = TryFixData(usersPerDay, revenuePerDayCopyOne);
+            bool bIsDataFixed = TryFixData(usersPerDay, revenuePerDayCopyOne);
 
-            if (isDataFixed)
+            if (bIsDataFixed)
             {
                 numInvalidEntries = 0;
-                for (int i = 0; i < NUM_REVENUE_ENTRIES; ++i)
+                for (int i = 0; i < numRevenueEntries; ++i)
                 {
                     if (revenuePerDayCopyOne[i] != revenuePerDayCopyTwo[i])
                     {
@@ -79,6 +84,23 @@ namespace Lab5
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
+            int numRevenueEntries = revenuePerDay.Length;
+
+            if (numRevenueEntries == 0)
+            {
+                return -1;
+            }
+
+            if (start > end)
+            {
+                return -1;
+            }
+
+            if (end >= numRevenueEntries)
+            {
+                return -1;
+            }
+
             uint numDays = end - start + 1;
             double totalRevenue = 0.0;
 
