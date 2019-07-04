@@ -19,6 +19,11 @@ namespace Lab7
                 return false;
             }
 
+            if (array[0] == 0)
+            {
+                return false;
+            }
+
             if (array[0] > array.Length - 1)
             {
                 return false;
