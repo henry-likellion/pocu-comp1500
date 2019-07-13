@@ -24,8 +24,6 @@ namespace Lab8
 
             int count_number_lines = strArrayLevel1.Length;
 
-            string concatString = "";
-
             StringBuilder concatSB = new StringBuilder(2048);
 
             for (int i = 0; i < count_number_lines; ++i)
@@ -66,6 +64,8 @@ namespace Lab8
                     }
                 }
             }
+
+            string concatString;
 
             concatString = concatSB.ToString();
             
