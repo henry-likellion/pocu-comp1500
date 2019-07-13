@@ -7,17 +7,12 @@ namespace Lab8
     {
         public static string PrettifyList(string s)
         {
-            if (String.IsNullOrEmpty(s))
+            if (String.IsNullOrWhiteSpace(s))
             {
                 return null;
             }
 
-            if (s.Replace(" ", "") == "")
-            {
-                return null;
-            }
-
-            char[] second_list_alphabets = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            char[] secondListAlphabets = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
             int countLevel1 = 0;
             
@@ -43,7 +38,7 @@ namespace Lab8
                     }
                     else
                     {
-                        strArrayLevel2[j] = $"    {second_list_alphabets[countLevel2]}) {strArrayLevel2[j]}";
+                        strArrayLevel2[j] = $"    {secondListAlphabets[countLevel2]}) {strArrayLevel2[j]}";
                         countLevel2++;
 
                         string[] strArrayLevel3 = strArrayLevel2[j].Split("/");
