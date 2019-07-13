@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Lab8
 {
@@ -6,7 +7,7 @@ namespace Lab8
     {
         public static string PrettifyList(string s)
         {
-            if (s == "" || s == null)
+            if (String.IsNullOrEmpty(s))
             {
                 return null;
             }
@@ -16,24 +17,22 @@ namespace Lab8
                 return null;
             }
 
-            char[] SECOND_LIST_ALPHABETS = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+            char[] second_list_alphabets = new char[26] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
-            int count_level_1 = 0;
+            int countLevel1 = 0;
             
             string[] strArrayLevel1 = s.Split('|');
 
-            int count_number_lines = strArrayLevel1.Length;
-
             StringBuilder concatSB = new StringBuilder(2048);
 
-            for (int i = 0; i < count_number_lines; ++i)
+            for (int i = 0; i < strArrayLevel1.Length; ++i)
             {
-                count_level_1++;
-                strArrayLevel1[i] = $"{count_level_1}) {strArrayLevel1[i]}";
+                countLevel1++;
+                strArrayLevel1[i] = $"{countLevel1}) {strArrayLevel1[i]}";
 
                 string[] strArrayLevel2 = strArrayLevel1[i].Split("_");
 
-                int count_level_2 = 0;
+                int countLevel2 = 0;
 
                 for (int j = 0; j < strArrayLevel2.Length; ++j)
                 {
@@ -44,8 +43,8 @@ namespace Lab8
                     }
                     else
                     {
-                        strArrayLevel2[j] = $"    {SECOND_LIST_ALPHABETS[count_level_2]}) {strArrayLevel2[j]}";
-                        count_level_2++;
+                        strArrayLevel2[j] = $"    {second_list_alphabets[countLevel2]}) {strArrayLevel2[j]}";
+                        countLevel2++;
 
                         string[] strArrayLevel3 = strArrayLevel2[j].Split("/");
 
