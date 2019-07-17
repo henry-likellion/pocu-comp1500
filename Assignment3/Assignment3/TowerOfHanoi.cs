@@ -63,7 +63,8 @@ namespace Assignment3
 
         public static void MoveTwoDiscs(List<List<int>[]> snapshots, List<int>[] towersOfHanoi, int totalDiscs)
         {
-            int indexNumOne, indexNumTwo;
+            int indexNumOne;
+            int indexNumTwo;
 
             if (towersOfHanoi[0].IndexOf(1) != -1)
             {
