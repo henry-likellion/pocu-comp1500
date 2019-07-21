@@ -14,18 +14,24 @@ namespace Lab9
 
             if (sortedList2.Count == 0)
             {
-                return sortedList2;
+                return sortedList1;
             }
 
             for (int i = 0; i < sortedList2.Count; ++i)
             {
                 for (int j = sortedList1.Count - 1; j < sortedList1.Count; --j)
                 {
+                    if (sortedList1[0] > sortedList2[i])
+                    {
+                        sortedList1.Insert(0, sortedList2[i]);
+                        break;
+                    }
+
                     if (sortedList1[j] <= sortedList2[i])
                     {
                         sortedList1.Insert(j + 1, sortedList2[i]);
                         break;
-                    }
+                    }                  
                 }
             }
             return sortedList1;

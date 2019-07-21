@@ -9,8 +9,8 @@ namespace Lab9
     {
         static void Main(string[] args)
         {
-            List<int> list1 = new List<int> { 1, 1, 4, 7, 8, 11, 20 };
-            List<int> list2 = new List<int> { 2, 3, 4, 5, 10, 15, 16, 21, 22 };
+            List<int> list1 = new List<int> { 1, 1, 4 };
+            List<int> list2 = new List<int> { -2, 3, 3 };
 
             List<int> combinedList = Lab9.MergeLists(list1, list2);
             List<int> expectedList = new List<int> { 1, 1, 2, 3, 4, 4, 5, 7, 8, 10, 11, 15, 16, 20, 21, 22 };
