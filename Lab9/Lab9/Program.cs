@@ -45,6 +45,13 @@ namespace Lab9
                 Debug.Assert(keyvaluePair.Value == dict[keyvaluePair.Key]);
             }
 
+            keys = new List<string> { "a", "a", "c", "a" };
+            values = new List<int> { 1, 2, 3, 4 };
+
+            dict = Lab9.CombineListsToDictionary(keys, values);
+
+            printDictionary(dict);
+
             Dictionary<string, int> numerators = new Dictionary<string, int>
             {
                 { "a", 53 },

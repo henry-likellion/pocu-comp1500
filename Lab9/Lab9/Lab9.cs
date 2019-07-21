@@ -7,6 +7,16 @@ namespace Lab9
     {
         public static List<int> MergeLists(List<int> sortedList1, List<int> sortedList2)
         {
+            if (sortedList1.Count == 0)
+            {
+                return sortedList2;
+            }
+
+            if (sortedList2.Count == 0)
+            {
+                return sortedList2;
+            }
+
             for (int i = 0; i < sortedList2.Count; ++i)
             {
                 for (int j = sortedList1.Count - 1; j < sortedList1.Count; --j)
@@ -23,22 +33,12 @@ namespace Lab9
 
         public static Dictionary<string, int> CombineListsToDictionary(List<string> keys, List<int> values)
         {
-            List<string> noDuplicatedKeys = new List<string>();
-
-            for (int i = 0; i < keys.Count; ++i)
-            {
-                if (!noDuplicatedKeys.Contains(keys[i]))
-                {
-                    noDuplicatedKeys.Add(keys[i]);
-                }
-            }
-
-            int dictLength = (noDuplicatedKeys.Count >= values.Count) ? values.Count : noDuplicatedKeys.Count;
+            int dictLength = (keys.Count >= values.Count) ? values.Count : keys.Count;
             Dictionary<string, int> dict = new Dictionary<string, int>();
 
             for (int i = 0; i < dictLength; ++i)
             {
-                dict[noDuplicatedKeys[i]] = values[i];
+                dict.TryAdd(keys[i], values[i]);
             }
 
             return dict;
