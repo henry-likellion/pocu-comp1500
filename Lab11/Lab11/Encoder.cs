@@ -43,7 +43,10 @@ namespace Lab11
                     }
                 }
             }
-            
+
+            input.Seek(0, SeekOrigin.Begin);
+            output.Seek(0, SeekOrigin.Begin);
+
             return true;
         }
 
@@ -76,6 +79,9 @@ namespace Lab11
                     }
                 }
             }
+
+            input.Seek(0, SeekOrigin.Begin);
+            output.Seek(0, SeekOrigin.Begin);
 
             return true;
         }
