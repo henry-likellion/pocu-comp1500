@@ -13,11 +13,11 @@ namespace Lab11
                 return false;
             }
 
-            int asciiNumber = input.ReadByte();
-            byte counter = 1;
-
             using (var writer = new BinaryWriter(output))
             {
+                int asciiNumber = input.ReadByte();
+                byte counter = 1;
+
                 for (int i = 1; i <= input.Length; ++i)
                 {
                     int value = input.ReadByte();
@@ -27,6 +27,8 @@ namespace Lab11
 
                         writer.Write(counter);
                         writer.Write((byte)asciiNumber);
+                        output.Seek(0, SeekOrigin.Begin);
+                        input.Seek(0, SeekOrigin.Begin);
                     }
 
                     if (asciiNumber == value)
@@ -42,10 +44,7 @@ namespace Lab11
                         counter = 1;
                     }
                 }
-            }
-
-            input.Seek(0, SeekOrigin.Begin);
-            output.Seek(0, SeekOrigin.Begin);
+            }      
 
             return true;
         }
@@ -78,10 +77,10 @@ namespace Lab11
                         }
                     }
                 }
-            }
 
-            input.Seek(0, SeekOrigin.Begin);
-            output.Seek(0, SeekOrigin.Begin);
+                input.Seek(0, SeekOrigin.Begin);
+                output.Seek(0, SeekOrigin.Begin);
+            }  
 
             return true;
         }
