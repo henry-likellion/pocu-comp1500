@@ -22,12 +22,6 @@ namespace Lab11
             {
                 int value = input.ReadByte();
 
-                if (i == input.Length)
-                {
-                    writer.Write((byte)counter);
-                    writer.Write((byte)asciiNumber);
-                }
-
                 if (asciiNumber == value)
                 {
                     ++counter;
