@@ -39,10 +39,7 @@ namespace Lab11
                     }
                 }
                 else
-                {
-                    Console.WriteLine(counter);
-                    Console.WriteLine(asciiNumber);
-                    
+                {             
                     writer.Write((byte)counter);
                     writer.Write((byte)asciiNumber);
 
