@@ -56,7 +56,7 @@ namespace Lab11
                 return false;
             }
 
-            var writer = new StreamWriter(output);
+            var writer = new StreamWriter(output, System.Text.Encoding.ASCII, 512 ,false);
 
             int counter = input.ReadByte();
 
