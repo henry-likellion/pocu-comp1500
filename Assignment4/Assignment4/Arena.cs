@@ -7,7 +7,7 @@ namespace Assignment4
 {
     public class Arena
     {
-        public string ArenaName { get;  }
+        public string ArenaName { get; }
         public uint Capacity { get; }
         public uint Turns { get; private set; }
         public uint MonsterCount { get; private set; }
@@ -30,7 +30,7 @@ namespace Assignment4
                 return;
             }
 
-            using(var reader = new StreamReader(filePath))
+            using (var reader = new StreamReader(filePath))
             {
                 while (!reader.EndOfStream)
                 {
@@ -111,8 +111,8 @@ namespace Assignment4
                 }
             }
 
-            foreach(int index in indexesOut)
-            {                
+            foreach (int index in indexesOut)
+            {
                 Monsters.RemoveAt(index);
                 --MonsterCount;
             }
@@ -127,7 +127,7 @@ namespace Assignment4
             }
             int indexHealthiest = 0;
 
-            for(int i = 1; i < Monsters.Count; ++i)
+            for (int i = 1; i < Monsters.Count; ++i)
             {
                 if (Monsters[indexHealthiest].Health < Monsters[i].Health)
                 {

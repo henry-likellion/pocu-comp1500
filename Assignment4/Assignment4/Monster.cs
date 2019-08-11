@@ -33,7 +33,7 @@ namespace Assignment4
         }
 
         public void Attack(Monster otherMonster)
-        {   
+        {
             int damage = AttackStat - otherMonster.DefenseStat;
 
             switch (ElementType)
