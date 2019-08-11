@@ -117,7 +117,6 @@ namespace Assignment4
                 --MonsterCount;
             }
             ++Turns;
-            Console.WriteLine(Turns);
         }
 
         public Monster GetHealthiest()
