@@ -77,7 +77,7 @@ namespace Assignment4
         public void GoToNextTurn()
         {
             int countMonsters = Monsters.Count;
-            List<int> indexesOut = new List<int>(countMonsters);
+            List<Monster> monsterOut = new List<Monster>(countMonsters);
 
             if (countMonsters <= 1)
             {
@@ -104,19 +104,40 @@ namespace Assignment4
 
                     monster.Attack(nextMonster);
 
-                    if (nextMonster.Health == 0)
+                    if (Turns != 0 && nextMonster.Health == 0)
                     {
-                        indexesOut.Add(index);
+                        monsterOut.Add(nextMonster);
                     }
                 }
             }
 
-            foreach (int index in indexesOut)
+            if (Turns == 0)
             {
-                Monsters.RemoveAt(index);
+                for (int i = 0; i < countMonsters; ++i)
+                {
+                    if (Monsters[i].Health == 0)
+                    {
+                        monsterOut.Add(Monsters[i]);
+                    }
+                }
+            }
+
+            foreach (var monster in monsterOut)
+            {
+                Console.WriteLine(monster.Name);
+                Monsters.Remove(monster);
                 --MonsterCount;
             }
+
             ++Turns;
+
+            foreach(var monster in Monsters)
+            {
+                Console.Write($"{monster.Name}: {monster.Health}  ");
+            }
+            Console.WriteLine("");
+
+            Console.WriteLine($"{Turns}: {MonsterCount}");
         }
 
         public Monster GetHealthiest()
