@@ -129,6 +129,14 @@ namespace Assignment4
             }
 
             ++Turns;
+
+            foreach(var monster in Monsters)
+            {
+                Console.Write($"{monster.Name}: {monster.Health}  ");
+            }
+            Console.WriteLine("");
+
+            Console.WriteLine($"{Turns}: {MonsterCount}");
         }
 
         public Monster GetHealthiest()

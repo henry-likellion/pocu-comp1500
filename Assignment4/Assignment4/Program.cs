@@ -49,6 +49,18 @@ namespace Assignment4
             arena.GoToNextTurn();
             arena.GoToNextTurn();
             arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
+            arena.GoToNextTurn();
 
             Debug.Assert(arena.GetHealthiest().Name == "MyMonster1");
         }
